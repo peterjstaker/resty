@@ -1,21 +1,21 @@
 @import "../../design/variables.scss";
 
-.results {
-  width: 80%;
-  height: 10rem;
+.request {
+  width: 60%;
+  height: 2rem;
   background-color: $grey;
   margin: auto;
   margin-bottom: 5rem;
   border: 3px solid $light;
 }
 
-button{
-  background-color: $grey;
-}
+// button{
+//   background-color: $grey;
+// }
 
-button:hover {
-  background-color: $light;
-}
+// button:hover {
+//   background-color: $light;
+// }
 
 .crud {
   background-color: $grey;
@@ -31,8 +31,9 @@ button:hover {
 }
 
 .entered {
-  color: $vdarkblue;
-  padding: 2rem;
+  color: $darkblue;
+  padding: .5rem;
+  margin: auto;
 }
 
 .input {

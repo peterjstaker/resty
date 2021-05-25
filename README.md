@@ -14,4 +14,4 @@ npm start
 
 ## Data Flow
 
-![resty data flow](./assets/UML.jpg)
+![resty data flow](./src/assets/UML.jpg)
