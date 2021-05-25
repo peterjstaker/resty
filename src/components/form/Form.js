@@ -6,19 +6,13 @@ class Form extends React.Component{
     super(props);
     this.state = { 
       url: '',
-      method: '',
-      show: false
+      method: 'GET'
     }
   }
 
   handleChange = e => {
     let url = e.target.value;
     this.setState({ url });
-  }
-
-  handleClick = e => {
-    e.preventDefault();
-    this.setState({ show: true });
   }
 
   handleGet = e => {
@@ -29,11 +23,13 @@ class Form extends React.Component{
   handlePost = e => {
     e.preventDefault();
     this.setState({method: 'POST'})
+    // TO DO: render input field for body
   }
 
   handlePut = e => {
     e.preventDefault();
     this.setState({method: 'PUT'})
+    // TO DO: render input field for body
   }
 
   handleDelete = e => {
@@ -47,8 +43,10 @@ class Form extends React.Component{
     return (
       <div>
         <div className="input">
-          <input type="text" onChange={this.handleChange} />
-          <button onClick={this.handleClick}>GO!</button>
+          <form onSubmit={e => this.props.handleSubmit(e, this.state.url, this.state.method)}>
+            <input type="text" onChange={this.handleChange} />
+            <button>GO!</button>
+          </form>
           <br></br>
           <div>
             <button className="crud" onClick={this.handleGet}>GET</button>
@@ -57,14 +55,12 @@ class Form extends React.Component{
             <button className="crud" onClick={this.handleDelete}>DELETE</button>
           </div>
         </div>
-        <div className="results">
-          {this.state.show &&
+        <div className="request">
           <p className="entered">
             {this.state.method}
             {'  '}
             {this.state.url}
           </p>
-          }
         </div>
       </div>
     )

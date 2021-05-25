@@ -1,0 +1,10 @@
+@import "../../design/variables.scss";
+
+.results {
+  width: 60%;
+  background-color: $grey;
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 5rem;
+  border: 3px solid $light;
+}
