@@ -1,6 +1,7 @@
 # RESTy
 
-PR: [https://github.com/peterjast/resty/pull/1](https://github.com/peterjast/caps-cloud/pull/1)
+PR #1: [https://github.com/peterjast/resty/pull/1](https://github.com/peterjast/resty/pull/1)
+PR #2: [https://github.com/peterjast/resty/pull/2](https://github.com/peterjast/resty/pull/2)
 
 Deployed: [https://ps-resty.netlify.app/](https://ps-resty.netlify.app/)
 
