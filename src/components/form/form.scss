@@ -1,0 +1,41 @@
+@import "../../design/variables.scss";
+
+.results {
+  width: 80%;
+  height: 10rem;
+  background-color: $grey;
+  margin: auto;
+  margin-bottom: 5rem;
+  border: 3px solid $light;
+}
+
+button{
+  background-color: $grey;
+}
+
+button:hover {
+  background-color: $light;
+}
+
+.crud {
+  background-color: $grey;
+}
+
+.crud:hover {
+  background-color: $light;
+}
+
+.crud:focus {
+  background-color: $darkblue;
+  color: $light;
+}
+
+.entered {
+  color: $vdarkblue;
+  padding: 2rem;
+}
+
+.input {
+  padding: 2rem;
+  text-align: center;
+}

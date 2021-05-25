@@ -1,0 +1,13 @@
+@import "../../design/variables.scss";
+
+footer {
+  background-color: $darkblue;
+  padding: .5rem;
+  width: 100%;
+  margin: 0; 
+}
+
+.copyright {
+  text-align: center;
+  color: $light;
+}

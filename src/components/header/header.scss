@@ -1,0 +1,12 @@
+@import "../../design/variables.scss";
+
+header {
+  background-color: $darkblue;
+  padding: .5rem;
+  width: 100%;
+}
+
+h1 {
+  padding-left: 5rem;
+  color: $vlight;
+}
