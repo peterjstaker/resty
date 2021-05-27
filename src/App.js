@@ -4,6 +4,8 @@ import Header from './components/header/Header.js';
 import Footer from './components/footer/Footer.js';
 import Form from './components/form/Form.js';
 import Results from './components/results/results.js';
+import History from './components/history/history.js';
+import { If, Then } from 'react-if';
 import './design/design.scss';
 
 class App extends React.Component {
@@ -14,12 +16,14 @@ class App extends React.Component {
       resultsArray: [],
       headers: {},
       results: {},
-      show: false
+      show: false,
+      history: []
     }
   }
 
-  handleSubmit = async (e, url, method) => {
+  handleSubmit = async (e, url, method, body) => {
     e.preventDefault();
+    this.setState({show: true})
     try{
       let count;
       let data;
@@ -27,22 +31,39 @@ class App extends React.Component {
       let headers;
       switch(method) {
         case 'PUT':
-          // TODO - put method w/ body
+          results = await axios.put(url, {body});
+          headers = results.headers;
+          data = results.data;
+          count = data.count;
           break;
         case 'POST':
-          // TODO - post method w/body
+          results = await axios.post(url, {body});
+          headers = results.headers;
+          data = results.data;
+          count = data.count;
           break;
         case 'DELETE':
-          // TODO - delete method
+          results = await axios.delete(url);
+          headers = results.headers;
+          data = results.data;
+          count = data.count;
           break;    
         default:
-          results = await axios.get(`${url}`);
+          results = await axios.get(url);
           headers = results.headers;
           data = results.data;
           count = data.count;
       }
       console.log('__SW_DATA___', data, results);
-      this.setState({results, headers, count, resultsArray: data.results, show: true});
+      this.setState({results, headers, count, resultsArray: data.results, show: false});
+      console.log('STATE', this.state);
+      let search = {url, method, body};
+      if(!this.state.history.includes(search)){
+        let tempHistory = this.state.history;
+        tempHistory.push(search);
+        this.setState({ history: tempHistory });
+      }
+      console.log('HISTORY', this.state.history);
     } catch(err) {
       console.log(err.message);
     }
@@ -53,7 +74,12 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <Form handleSubmit={this.handleSubmit} show={this.state.show}/>
-        <Results results={this.state.results} headers={this.state.headers} count={this.state.count} resultsArray={this.state.resultsArray}/>
+        <If condition={this.state.history.length > 0}>
+          <Then>
+            <History history={this.state.history} handleSubmit={this.handleSubmit}/>
+          </Then>
+        </If>
+        <Results results={this.state.results} headers={this.state.headers} count={this.state.count} resultsArray={this.state.resultsArray} show={this.state.show}/>
         <Footer />
       </div>
     );

@@ -1,0 +1,18 @@
+@import "../../design/variables.scss";
+
+.history{
+  width: 50%;
+  margin: auto;
+  
+  .historyTitle {
+    color: $vlight;
+  }
+  
+  p {
+    color: $vlight;
+    button {
+      background-color: $light;
+      color: $vdarkblue;
+    }
+  }
+}
