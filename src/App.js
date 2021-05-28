@@ -5,6 +5,8 @@ import Footer from './components/footer/Footer.js';
 import Form from './components/form/Form.js';
 import Results from './components/results/results.js';
 import History from './components/history/history.js';
+import Help from './components/help/Help.js';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { If, Then } from 'react-if';
 import './design/design.scss';
 
@@ -17,13 +19,14 @@ class App extends React.Component {
       headers: {},
       results: {},
       show: false,
-      history: []
+      history: [],
+      showResults: false
     }
   }
 
   handleSubmit = async (e, url, method, body) => {
     e.preventDefault();
-    this.setState({show: true})
+    this.setState({show: true, showResults: true})
     try{
       let count;
       let data;
@@ -71,17 +74,36 @@ class App extends React.Component {
 
   render(){
     return (
-      <div className="App">
+      <BrowserRouter>
         <Header />
-        <Form handleSubmit={this.handleSubmit} show={this.state.show}/>
-        <If condition={this.state.history.length > 0}>
-          <Then>
-            <History history={this.state.history} handleSubmit={this.handleSubmit}/>
-          </Then>
-        </If>
-        <Results results={this.state.results} headers={this.state.headers} count={this.state.count} resultsArray={this.state.resultsArray} show={this.state.show}/>
+          <Switch>
+            <Route exact path="/">
+              <Form handleSubmit={this.handleSubmit} show={this.state.show}/>
+              <div className="content">
+                <If condition={this.state.history.length > 0}>
+                  <Then>
+                    <History history={this.state.history} handleSubmit={this.handleSubmit}/>
+                  </Then>
+                </If>
+                <Results results={this.state.results} headers={this.state.headers} count={this.state.count} resultsArray={this.state.resultsArray} show={this.state.show} showResults={this.state.showResults}/>
+              </div>
+            </Route>
+            <Route exact path="/history">
+             <div className="content">
+                <If condition={this.state.history.length > 0}>
+                  <Then>
+                    <History history={this.state.history} handleSubmit={this.handleSubmit}/>
+                  </Then>
+                </If>
+                <Results results={this.state.results} headers={this.state.headers} count={this.state.count} resultsArray={this.state.resultsArray} show={this.state.show} showResults={this.state.showResults}/>
+              </div>
+            </Route>
+            <Route exact path="/help">
+              <Help />
+            </Route>
+          </Switch>
         <Footer />
-      </div>
+      </BrowserRouter>
     );
   }
 }
