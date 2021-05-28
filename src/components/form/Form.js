@@ -46,7 +46,7 @@ class Form extends React.Component{
   render() {
     
     return (
-      <div>
+      <div className="form">
         <div className="input">
           <form onSubmit={e => this.props.handleSubmit(e, this.state.url, this.state.method, this.state.body)}>
             <label for="url">URL</label>
@@ -68,13 +68,6 @@ class Form extends React.Component{
             <button className="crud" onClick={this.handlePut}>PUT</button>
             <button className="crud" onClick={this.handleDelete}>DELETE</button>
           </div>
-        </div>
-        <div className="request">
-          <p className="entered">
-            {this.state.method}
-            {'  '}
-            {this.state.url}
-          </p>
         </div>
       </div>
     )

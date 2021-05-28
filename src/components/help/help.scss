@@ -1,0 +1,20 @@
+@import "../../design/variables.scss";
+
+.help {
+  width: 80%;
+  background-color: $grey;
+  margin: auto;
+  margin-top: 10rem;
+  margin-bottom: 5rem;
+  border: 3px solid $light;
+
+  h2{
+    color: $light;
+    padding-left: 1rem;
+  }
+
+  p{
+    color: $darkblue;
+    padding-left: 1rem;
+  }
+}

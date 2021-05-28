@@ -15,14 +15,18 @@ const Results = (props) => {
       </div>
     </Then>
     <Else>
-      <div className="results">
-        <>
-        <h2>Headers</h2>
-        <ReactJson src={props.headers} />
-        <h2>Results</h2>
-        <ReactJson src={props.results} />
-        </>
-      </div>
+      <If condition={props.showResults === true}>
+        <Then>
+          <div className="results">
+            <>
+            <h2>Headers</h2>
+            <ReactJson src={props.headers} />
+            <h2>Results</h2>
+            <ReactJson src={props.results} />
+            </>
+          </div>
+        </Then>
+      </If>
     </Else>
   </If>
   )
