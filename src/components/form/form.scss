@@ -19,15 +19,22 @@
 
 .crud {
   background-color: $grey;
+  border: none;
+  border-radius: 2px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
 }
 
 .crud:hover {
-  background-color: $light;
+  background-color: $vlight;
+  cursor: pointer;
 }
 
 .crud:focus {
   background-color: $darkblue;
   color: $light;
+  border-radius: 2px;
 }
 
 .entered {
@@ -41,14 +48,16 @@
   text-align: center;
 }
 
-.body {
-  height: 2rem;
-}
 
 input {
   padding: 12px;
   margin: 5px;
   width: 50%;
+}
+
+.body {
+  height: 2rem;
+  width: 41.5%;
 }
 
 label {
@@ -57,4 +66,19 @@ label {
 
 .form {
   margin-top: 5rem;
+}
+
+.go {
+  margin-left: 1rem;
+}
+
+.go:hover {
+  background-color: $vlight;
+  cursor: pointer;
+}
+
+.go:focus {
+  background-color: $darkblue;
+  color: $light;
+  border-radius: 2px;
 }

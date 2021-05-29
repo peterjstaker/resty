@@ -12,8 +12,19 @@
   p {
     color: $vlight;
     button {
-      background-color: $light;
+      background-color: $vlight;
+      margin-right: .5rem;
       color: $vdarkblue;
+    }
+    button:hover {
+      background-color: $vlight;
+      cursor: pointer;
+    }
+    
+    button:focus {
+      background-color: $darkblue;
+      color: $light;
+      border-radius: 2px;
     }
   }
 }
