@@ -55,17 +55,17 @@ class Form extends React.Component{
             <button className="crud" onClick={this.handleDelete}>DELETE</button>
           </div>
           <form onSubmit={e => this.props.handleSubmit(e, this.state.url, this.state.method, this.state.body)}>
-            <label for="url">URL</label>
+            <label for="url">URL </label>
             <input type="text" id="url" onChange={this.handleChange} />
-            <button className="go">GO!</button>
             <br></br>
             <If condition={this.state.method === 'PUT' || this.state.method === 'POST'}>
               <Then>
-                <label for="body">Request Body</label>
+                <label for="body">Body</label>
                 <input type="text" id="body" className="body" onChange={this.handleBody} />
                 <br></br>
               </Then>
             </If>
+            <button className="go">GO!</button>
           </form>
         </div>
       </div>

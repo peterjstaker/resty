@@ -22,7 +22,7 @@
   border: none;
   border-radius: 2px;
   margin-left: 1rem;
-  margin-right: 1rem;
+  // margin-right: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -57,7 +57,6 @@ input {
 
 .body {
   height: 2rem;
-  width: 41.5%;
 }
 
 label {
@@ -69,6 +68,7 @@ label {
 }
 
 .go {
+  margin-top: 1rem;
   margin-left: 1rem;
 }
 
