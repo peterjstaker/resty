@@ -48,26 +48,25 @@ class Form extends React.Component{
     return (
       <div className="form">
         <div className="input">
-          <form onSubmit={e => this.props.handleSubmit(e, this.state.url, this.state.method, this.state.body)}>
-            <label for="url">URL</label>
-            <input type="text" id="url" onChange={this.handleChange} />
-            <br></br>
-            <If condition={this.state.method === 'PUT' || this.state.method === 'POST'}>
-              <Then>
-                <label for="body">Body</label>
-                <input type="text" id="body" className="body" onChange={this.handleBody} />
-                <br></br>
-              </Then>
-            </If>
-            <button>GO!</button>
-          </form>
-          <br></br>
-          <div>
+        <div>
             <button className="crud" onClick={this.handleGet}>GET</button>
             <button className="crud" onClick={this.handlePost}>POST</button>
             <button className="crud" onClick={this.handlePut}>PUT</button>
             <button className="crud" onClick={this.handleDelete}>DELETE</button>
           </div>
+          <form onSubmit={e => this.props.handleSubmit(e, this.state.url, this.state.method, this.state.body)}>
+            <label for="url">URL</label>
+            <input type="text" id="url" onChange={this.handleChange} />
+            <button className="go">GO!</button>
+            <br></br>
+            <If condition={this.state.method === 'PUT' || this.state.method === 'POST'}>
+              <Then>
+                <label for="body">Request Body</label>
+                <input type="text" id="body" className="body" onChange={this.handleBody} />
+                <br></br>
+              </Then>
+            </If>
+          </form>
         </div>
       </div>
     )
