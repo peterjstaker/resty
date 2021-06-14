@@ -1,6 +1,6 @@
 # RESTy
 
-*Peter Staker*
+## *Author: Peter Staker*
 
 An API testing tool made with React.
 
