@@ -4,7 +4,7 @@
 
 An API testing tool made with React.
 
-Deployed: [https://ps-resty.netlify.app/](https://ps-resty.netlify.app/)
+Deployed Application: [https://ps-resty.netlify.app/](https://ps-resty.netlify.app/)
 
 ## Install Dependences
 
